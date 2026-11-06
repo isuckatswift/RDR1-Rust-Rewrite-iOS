@@ -1,7 +1,7 @@
 // Basic mathematical types and operations.
+pub mod mat4;
 
 use std::ops::{Add, Div, Mul, Neg, Sub};
-pub mod mat4;
 
 /// A two-dimensional vector.
 #[derive(Debug, Clone, Copy, PartialEq, Default)]
