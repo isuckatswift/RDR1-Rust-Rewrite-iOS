@@ -3,6 +3,7 @@
 //! This crate does not contain the original game's engine or assets.
 
 /// Returns the crate's current version.
+pub mod math;
 pub const VERSION: &str = env!("CARGO_PKG_VERSION");
 
 #[cfg(test)]
