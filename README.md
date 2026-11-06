@@ -1,4 +1,5 @@
-# Red Dead Redemption - iOS Rust Port
+# Red Dead Redemption - iOS Rust Port / CANCELLED : Project will take longer than expected
+
 
 An experimental native iOS port of Red Dead Redemption (2010), focused on performance, compatibility, and Apple silicon optimisation.
 
