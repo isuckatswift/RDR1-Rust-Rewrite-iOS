@@ -18,12 +18,15 @@ This repository is not currently a playable port. It does not contain the origin
 
 ## Technology
 
-Technology	Intended purpose
-> Rust	Portable systems and tooling
-> C++	Potential engine components
-> Objective-C++	Native iOS integration
-> Metal	Graphics rendering
-> Xcode	iOS compilation and signing
+| Technology | Intended purpose |
+|---|---|
+| Rust | Portable systems and tooling |
+| C++ | Potential engine components |
+| Objective-C++ | Native iOS integration |
+| Metal | Graphics rendering |
+| Xcode | iOS compilation and signing |
+
+These technologies are candidates, not evidence of an existing implementation.
 
 These technologies are candidates, not evidence of an existing implementation.
 
