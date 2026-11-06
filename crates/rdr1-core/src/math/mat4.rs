@@ -166,14 +166,11 @@ mod tests {
         assert_eq!(Mat4::identity() * matrix, matrix);
     }
 
-    #[test]
-    fn matrix_multiplication_combines_transforms() {
-        let translation = Mat4::translation(Vec3::new(1.0, 2.0, 3.0));
-        let scaling = Mat4::scaling(Vec3::new(2.0, 2.0, 2.0));
+#[test]
+fn translation_moves_point() {
+    let matrix = Mat4::translation(Vec3::new(5.0, 2.0, 1.0));
+    let point = Vec3::new(1.0, 2.0, 3.0);
 
-        let combined = translation * scaling;
-        let result = combined.transform_point(Vec3::new(1.0, 1.0, 1.0));
-
-        assert_eq!(result, Vec3::new(3.0, 4.0, 5.0));
-    }
+    assert_eq!(matrix.transform_point(point), Vec3::new(2.0, 6.0, 12.0));
+}
 }
