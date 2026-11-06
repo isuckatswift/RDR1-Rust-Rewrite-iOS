@@ -1,14 +1,14 @@
 # Red Dead Redemption - iOS Rust Port
 
-iOS Rust Rewrite to enhance RDR1 — iOS Porting Research
+an experimental native ios port of red dead redemption (2010), focused on performance, compatibility, and apple silicon optimisation.
 
 An experimental project exploring the technical feasibility of running Red Dead Redemption (2010) on iOS, with a focus on performance, compatibility, and a maintainable Rust-based codebase.
 
-# Status: Planning and research.
+## Status: Planning and research.
 
 This repository is not currently a playable port. It does not contain the original game’s source code or assets.
 
-# Project goals
+## Project goals
 
 * Investigate the feasibility of an iOS implementation.
 * Explore Rust for suitable game systems and supporting tools.
@@ -17,18 +17,18 @@ This repository is not currently a playable port. It does not contain the origin
 * Measure performance on Apple Silicon devices.
 * Document development progress and technical findings.
 
-# Technology
+## Technology
 
 Technology	Intended purpose
-Rust	Portable systems and tooling
-C++	Potential engine components
-Objective-C++	Native iOS integration
-Metal	Graphics rendering
-Xcode	iOS compilation and signing
+> Rust	Portable systems and tooling
+> C++	Potential engine components
+> Objective-C++	Native iOS integration
+> Metal	Graphics rendering
+> Xcode	iOS compilation and signing
 
 These technologies are candidates, not evidence of an existing implementation.
 
-# Proposed structure
+## Proposed structure
 
 RDR1-Rust-Rewrite-iOS/
 ├── README.md
@@ -38,7 +38,7 @@ RDR1-Rust-Rewrite-iOS/
 ├── native/
 └── tests/
 
-# Development roadmap
+## Development roadmap
 
 1. Research the original game’s technical requirements.
 2. Establish a realistic architecture.
@@ -47,12 +47,12 @@ RDR1-Rust-Rewrite-iOS/
 5. Investigate rendering, input, and audio integration.
 6. Profile performance and optimise where possible.
 
-# Important notes
+## Important notes
 
 A complete port requires access to suitable source code, compatible engine components, and the necessary legal permissions.
 
 The project will not distribute proprietary game files or copyrighted assets.
 
-# Disclaimer
+## Disclaimer
 
 Red Dead Redemption is the property of its respective rights holders. This is an independent, unofficial research project and is not affiliated with or endorsed by its publisher or developers.
