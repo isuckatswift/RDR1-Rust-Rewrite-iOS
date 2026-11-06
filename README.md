@@ -2,7 +2,6 @@
 
 an experimental native ios port of red dead redemption (2010), focused on performance, compatibility, and apple silicon optimisation.
 
-An experimental project exploring the technical feasibility of running Red Dead Redemption (2010) on iOS, with a focus on performance, compatibility, and a maintainable Rust-based codebase.
 
 ## Status: Planning and research.
 
