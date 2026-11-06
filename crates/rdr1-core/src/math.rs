@@ -84,4 +84,30 @@ mod tests {
 
         assert_eq!(first.dot(second), 23.0);
     }
+        #[test]
+    fn creates_vec3() {
+        let vector = Vec3::new(1.0, 2.0, 3.0);
+
+        assert_eq!(vector.x, 1.0);
+        assert_eq!(vector.y, 2.0);
+        assert_eq!(vector.z, 3.0);
+    }
+
+    #[test]
+    fn calculates_vec3_length() {
+        let vector = Vec3::new(2.0, 3.0, 6.0);
+
+        assert_eq!(vector.length(), 7.0);
+    }
+
+    #[test]
+    fn calculates_vec3_cross_product() {
+        let first = Vec3::new(1.0, 0.0, 0.0);
+        let second = Vec3::new(0.0, 1.0, 0.0);
+
+        assert_eq!(
+            first.cross(second),
+            Vec3::new(0.0, 0.0, 1.0)
+        );
+    }
 }
