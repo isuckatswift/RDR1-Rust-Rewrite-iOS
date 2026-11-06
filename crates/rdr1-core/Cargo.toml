@@ -1,0 +1,9 @@
+[package]
+name = "rdr1-core"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+description = "Experimental portable systems for the RDR1 iOS research project"
+
+[lib]
+path = "src/lib.rs"
