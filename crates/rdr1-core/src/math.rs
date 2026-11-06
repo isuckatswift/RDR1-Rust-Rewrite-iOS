@@ -84,7 +84,7 @@ mod tests {
 
         assert_eq!(first.dot(second), 23.0);
     }
-        #[test]
+    #[test]
     fn creates_vec3() {
         let vector = Vec3::new(1.0, 2.0, 3.0);
 
