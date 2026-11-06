@@ -1,6 +1,6 @@
 # Red Dead Redemption - iOS Rust Port
 
-an experimental native ios port of red dead redemption (2010), focused on performance, compatibility, and apple silicon optimisation.
+An experimental native iOS port of Red Dead Redemption (2010), focused on performance, compatibility, and Apple silicon optimisation.
 
 
 ## Status: Planning and research.
