@@ -1,4 +1,3 @@
-
 use std::ops::Mul;
 
 use super::Vec3;
