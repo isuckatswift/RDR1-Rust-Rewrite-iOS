@@ -1,4 +1,3 @@
-
 // Basic mathematical types and operations.
 
 use std::ops::{Add, Div, Mul, Neg, Sub};
@@ -168,11 +167,7 @@ impl Vec3 {
 
     /// Multiplies the vector by a scalar.
     pub fn scale(self, scalar: f32) -> Self {
-        Self::new(
-            self.x * scalar,
-            self.y * scalar,
-            self.z * scalar,
-        )
+        Self::new(self.x * scalar, self.y * scalar, self.z * scalar)
     }
 }
 
@@ -180,11 +175,7 @@ impl Add for Vec3 {
     type Output = Self;
 
     fn add(self, other: Self) -> Self {
-        Self::new(
-            self.x + other.x,
-            self.y + other.y,
-            self.z + other.z,
-        )
+        Self::new(self.x + other.x, self.y + other.y, self.z + other.z)
     }
 }
 
@@ -192,11 +183,7 @@ impl Sub for Vec3 {
     type Output = Self;
 
     fn sub(self, other: Self) -> Self {
-        Self::new(
-            self.x - other.x,
-            self.y - other.y,
-            self.z - other.z,
-        )
+        Self::new(self.x - other.x, self.y - other.y, self.z - other.z)
     }
 }
 
@@ -217,11 +204,7 @@ impl Div<f32> for Vec3 {
             "Vec3 division requires a finite, non-zero scalar"
         );
 
-        Self::new(
-            self.x / scalar,
-            self.y / scalar,
-            self.z / scalar,
-        )
+        Self::new(self.x / scalar, self.y / scalar, self.z / scalar)
     }
 }
 
@@ -260,10 +243,7 @@ mod tests {
 
     #[test]
     fn vec2_dot_product() {
-        assert_eq!(
-            Vec2::new(2.0, 3.0).dot(Vec2::new(4.0, 5.0)),
-            23.0
-        );
+        assert_eq!(Vec2::new(2.0, 3.0).dot(Vec2::new(4.0, 5.0)), 23.0);
     }
 
     #[test]
@@ -292,10 +272,7 @@ mod tests {
 
     #[test]
     fn vec2_distance() {
-        assert_eq!(
-            Vec2::new(1.0, 2.0).distance(Vec2::new(4.0, 6.0)),
-            5.0
-        );
+        assert_eq!(Vec2::new(1.0, 2.0).distance(Vec2::new(4.0, 6.0)), 5.0);
     }
 
     #[test]
@@ -337,9 +314,7 @@ mod tests {
 
     #[test]
     fn vec3_normalization() {
-        let result = Vec3::new(2.0, 3.0, 6.0)
-            .normalized()
-            .unwrap();
+        let result = Vec3::new(2.0, 3.0, 6.0).normalized().unwrap();
 
         assert!((result.length() - 1.0).abs() < 0.0001);
     }
@@ -347,10 +322,7 @@ mod tests {
     #[test]
     fn vec3_zero_and_non_finite_normalization() {
         assert_eq!(Vec3::zero().normalized(), None);
-        assert_eq!(
-            Vec3::new(f32::NAN, 1.0, 2.0).normalized(),
-            None
-        );
+        assert_eq!(Vec3::new(f32::NAN, 1.0, 2.0).normalized(), None);
     }
 
     #[test]
@@ -366,8 +338,7 @@ mod tests {
     #[test]
     fn vec3_distance() {
         assert_eq!(
-            Vec3::new(1.0, 2.0, 3.0)
-                .distance(Vec3::new(4.0, 6.0, 3.0)),
+            Vec3::new(1.0, 2.0, 3.0).distance(Vec3::new(4.0, 6.0, 3.0)),
             5.0
         );
     }
