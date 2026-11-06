@@ -23,6 +23,7 @@ impl Vec2 {
         self.x * other.x + self.y * other.y
     }
 }
+
 /// A three-dimensional vector.
 #[derive(Debug, Clone, Copy, PartialEq)]
 pub struct Vec3 {
@@ -56,6 +57,7 @@ impl Vec3 {
         }
     }
 }
+
 #[cfg(test)]
 mod tests {
     use super::*;
