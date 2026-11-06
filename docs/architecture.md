@@ -45,7 +45,7 @@ The native layer will handle:
 
 Objective-C++ may be used as a bridge between C++ and Apple’s frameworks.
 
-5. Graphics Architecture
+## 5. Graphics Architecture
 
 Metal is the proposed rendering API.
 
