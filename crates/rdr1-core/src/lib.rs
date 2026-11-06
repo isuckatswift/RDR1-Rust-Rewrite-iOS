@@ -4,3 +4,18 @@
 
 /// Returns the crate's current version.
 pub const VERSION: &str = env!("CARGO_PKG_VERSION");
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn version_is_not_empty() {
+        assert!(!VERSION.is_empty());
+    }
+
+    #[test]
+    fn version_has_three_components() {
+        assert_eq!(VERSION.split('.').count(), 3);
+    }
+}
