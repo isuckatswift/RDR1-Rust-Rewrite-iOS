@@ -28,8 +28,6 @@ This repository is not currently a playable port. It does not contain the origin
 
 These technologies are candidates, not evidence of an existing implementation.
 
-These technologies are candidates, not evidence of an existing implementation.
-
 ## Proposed structure
 
 RDR1-Rust-Rewrite-iOS/
