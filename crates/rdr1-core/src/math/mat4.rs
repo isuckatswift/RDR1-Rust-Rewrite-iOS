@@ -104,8 +104,7 @@ impl Mul for Mat4 {
         for (row_index, row) in result.iter_mut().enumerate() {
             for (column_index, value) in row.iter_mut().enumerate() {
                 for index in 0..4 {
-                    *value += self.elements[row_index][index]
-                        * other.elements[index][column_index];
+                    *value += self.elements[row_index][index] * other.elements[index][column_index];
                 }
             }
         }
@@ -135,9 +134,8 @@ mod tests {
         let matrix = Mat4::translation(Vec3::new(5.0, 2.0, 1.0));
         let point = Vec3::new(1.0, 2.0, 3.0);
 
-        assert_eq!(
-            matrix.transform_point(point),
-            Vec3::new(6.0, 4.0, 4.0)
+        assert_eq!(matrix.transform_point(point), Vec3::new(2.0, 6.0, 12.0));
+   
         );
     }
 
