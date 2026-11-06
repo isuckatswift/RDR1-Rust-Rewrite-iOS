@@ -1,4 +1,5 @@
-//! Basic mathematical types and operations.
+
+// Basic mathematical types and operations.
 
 use std::ops::{Add, Div, Mul, Neg, Sub};
 
@@ -22,7 +23,7 @@ impl Vec2 {
 
     /// Returns the squared magnitude.
     pub fn length_squared(self) -> f32 {
-        self.x * self.x + self.y * self.y
+        self.dot(self)
     }
 
     /// Returns the magnitude.
@@ -40,11 +41,13 @@ impl Vec2 {
         (self - other).length()
     }
 
-    /// Returns a normalized vector, or None for a zero vector.
+    /// Returns a normalized vector.
+    ///
+    /// Returns None if the magnitude is zero or non-finite.
     pub fn normalized(self) -> Option<Self> {
         let length = self.length();
 
-        if length == 0.0 {
+        if !length.is_finite() || length == 0.0 {
             None
         } else {
             Some(self / length)
@@ -85,6 +88,11 @@ impl Div<f32> for Vec2 {
     type Output = Self;
 
     fn div(self, scalar: f32) -> Self {
+        assert!(
+            scalar != 0.0 && scalar.is_finite(),
+            "Vec2 division requires a finite, non-zero scalar"
+        );
+
         Self::new(self.x / scalar, self.y / scalar)
     }
 }
@@ -118,7 +126,7 @@ impl Vec3 {
 
     /// Returns the squared magnitude.
     pub fn length_squared(self) -> f32 {
-        self.x * self.x + self.y * self.y + self.z * self.z
+        self.dot(self)
     }
 
     /// Returns the magnitude.
@@ -145,11 +153,13 @@ impl Vec3 {
         (self - other).length()
     }
 
-    /// Returns a normalized vector, or None for a zero vector.
+    /// Returns a normalized vector.
+    ///
+    /// Returns None if the magnitude is zero or non-finite.
     pub fn normalized(self) -> Option<Self> {
         let length = self.length();
 
-        if length == 0.0 {
+        if !length.is_finite() || length == 0.0 {
             None
         } else {
             Some(self / length)
@@ -202,6 +212,11 @@ impl Div<f32> for Vec3 {
     type Output = Self;
 
     fn div(self, scalar: f32) -> Self {
+        assert!(
+            scalar != 0.0 && scalar.is_finite(),
+            "Vec3 division requires a finite, non-zero scalar"
+        );
+
         Self::new(
             self.x / scalar,
             self.y / scalar,
@@ -225,12 +240,13 @@ mod tests {
     #[test]
     fn vec2_creation_and_zero() {
         assert_eq!(Vec2::new(3.0, 4.0).x, 3.0);
-        assert_eq!(Vec2::zero(), Vec2::new(0.0, 0.0));
+        assert_eq!(Vec2::zero(), Vec2::default());
     }
 
     #[test]
     fn vec2_length() {
         assert_eq!(Vec2::new(3.0, 4.0).length(), 5.0);
+        assert_eq!(Vec2::new(3.0, 4.0).length_squared(), 25.0);
     }
 
     #[test]
@@ -259,19 +275,39 @@ mod tests {
     }
 
     #[test]
-    fn vec2_zero_normalization() {
+    fn vec2_zero_and_non_finite_normalization() {
         assert_eq!(Vec2::zero().normalized(), None);
+        assert_eq!(Vec2::new(f32::INFINITY, 1.0).normalized(), None);
+    }
+
+    #[test]
+    fn vec2_scalar_operations() {
+        let vector = Vec2::new(2.0, 4.0);
+
+        assert_eq!(vector * 2.0, Vec2::new(4.0, 8.0));
+        assert_eq!(vector / 2.0, Vec2::new(1.0, 2.0));
+        assert_eq!(-vector, Vec2::new(-2.0, -4.0));
+        assert_eq!(vector.scale(3.0), Vec2::new(6.0, 12.0));
+    }
+
+    #[test]
+    fn vec2_distance() {
+        assert_eq!(
+            Vec2::new(1.0, 2.0).distance(Vec2::new(4.0, 6.0)),
+            5.0
+        );
     }
 
     #[test]
     fn vec3_creation_and_zero() {
         assert_eq!(Vec3::new(1.0, 2.0, 3.0).z, 3.0);
-        assert_eq!(Vec3::zero(), Vec3::new(0.0, 0.0, 0.0));
+        assert_eq!(Vec3::zero(), Vec3::default());
     }
 
     #[test]
     fn vec3_length() {
         assert_eq!(Vec3::new(2.0, 3.0, 6.0).length(), 7.0);
+        assert_eq!(Vec3::new(2.0, 3.0, 6.0).length_squared(), 49.0);
     }
 
     #[test]
@@ -309,8 +345,22 @@ mod tests {
     }
 
     #[test]
-    fn vec3_zero_normalization() {
+    fn vec3_zero_and_non_finite_normalization() {
         assert_eq!(Vec3::zero().normalized(), None);
+        assert_eq!(
+            Vec3::new(f32::NAN, 1.0, 2.0).normalized(),
+            None
+        );
+    }
+
+    #[test]
+    fn vec3_scalar_operations() {
+        let vector = Vec3::new(2.0, 4.0, 6.0);
+
+        assert_eq!(vector * 2.0, Vec3::new(4.0, 8.0, 12.0));
+        assert_eq!(vector / 2.0, Vec3::new(1.0, 2.0, 3.0));
+        assert_eq!(-vector, Vec3::new(-2.0, -4.0, -6.0));
+        assert_eq!(vector.scale(3.0), Vec3::new(6.0, 12.0, 18.0));
     }
 
     #[test]
