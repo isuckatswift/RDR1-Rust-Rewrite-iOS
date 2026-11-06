@@ -1,0 +1,5 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/rdr1-core",
+]
