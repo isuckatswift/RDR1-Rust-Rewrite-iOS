@@ -1,4 +1,4 @@
-# Development
+# Red Dead Redemption - iOS Rust Port
 
 iOS Rust Rewrite to enhance RDR1 — iOS Porting Research
 
@@ -55,4 +55,4 @@ The project will not distribute proprietary game files or copyrighted assets.
 
 # Disclaimer
 
-Red Dead Redemption is the property of its respective rights holders. This is an independent, unofficial research project and is not affiliated with or endorsed by its publisher or developers. quality of the game on iOS, and enjoyment. Made By zenith.
+Red Dead Redemption is the property of its respective rights holders. This is an independent, unofficial research project and is not affiliated with or endorsed by its publisher or developers.
